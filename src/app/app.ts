@@ -8,6 +8,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css',
 })
 export class App {
+  myData: any[] = [];
+
   constructor() {
     this.log();
   }
@@ -17,6 +19,8 @@ export class App {
       .then((response) => response.json())
       .then((data) => {
         console.log(data.items);
+        this.myData = data.items;
+        console.log(this.myData[0].name);
       })
       .catch((error) => console.error(error));
   }
