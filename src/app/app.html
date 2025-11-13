@@ -1,7 +1,7 @@
 <main class="main">
   @if(myData.length > 0) {
     <div>
-      {{ myData[0].name }}
+      {{ myData[0].name }}, {{ myData[0].description }}, {{ myData[0].stargazers_count }}, {{ myData[0].open_issues_count }}, {{ myData[0].owner.login }}, {{ myData[0].owner.avatar_url }}
     </div>
   }
 </main>
