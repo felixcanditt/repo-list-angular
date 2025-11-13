@@ -1,7 +1,15 @@
 <main class="main">
-  @if(myData.length > 0) {
-    <div>
-      {{ myData[0].name }}, {{ myData[0].description }}, {{ myData[0].stargazers_count }}, {{ myData[0].open_issues_count }}, {{ myData[0].owner.login }}, {{ myData[0].owner.avatar_url }}
-    </div>
+  @if (myData.length > 0) {
+    <ul>
+      @for (item of myData; track item.name) {
+        <li>
+          {{ item.name }}, {{ item.description }}, {{ item.stargazers_count }},
+          {{ item.open_issues_count }}, {{ item.owner.login }},
+          {{ item.owner.avatar_url }}
+        </li>
+      } @empty {
+        <li>There are no items.</li>
+      }
+    </ul>
   }
 </main>
