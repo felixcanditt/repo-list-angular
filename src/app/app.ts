@@ -5,8 +5,18 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('repo-list-angular');
+
+  constructor() {
+    this.log();
+  }
+
+  log() {
+    console.log(1);
+  }
+
+  count = 1;
 }
