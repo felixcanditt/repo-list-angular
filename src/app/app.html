@@ -1,14 +1,14 @@
 <main class="main">
-  @if (myData.length > 0) {
+  @if (repositories.length > 0) {
     <ul>
-      @for (item of myData; track item.name) {
+      @for (repository of repositories; track repository.name) {
         <li>
-          {{ item.name }}, {{ item.description }}, {{ item.stargazers_count }},
-          {{ item.open_issues_count }}, {{ item.owner.login }},
-          {{ item.owner.avatar_url }}
+          {{ repository.name }}, {{ repository.description }}, {{ repository.stargazers_count }},
+          {{ repository.open_issues_count }}, {{ repository.owner.login }},
+          {{ repository.owner.avatar_url }}
         </li>
       } @empty {
-        <li>There are no items.</li>
+        <li>There are no repositories.</li>
       }
     </ul>
   }

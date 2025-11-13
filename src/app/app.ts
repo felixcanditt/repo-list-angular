@@ -19,7 +19,7 @@ interface Repository {
   styleUrl: './app.css',
 })
 export class App {
-  myData: Repository[] = [];
+  repositories: Repository[] = [];
 
   ngOnInit() {
     this.fetchRepositories();
@@ -29,9 +29,7 @@ export class App {
     fetch('https://api.github.com/search/repositories?q=created:>2025-10-13&sort=stars&order=desc')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.items);
-        this.myData = data.items;
-        console.log(this.myData[0]);
+        this.repositories = data.items;
       })
       .catch((error) => console.error(error));
   }
