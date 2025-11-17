@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface Repository {
@@ -27,6 +27,21 @@ export class App {
     this.fetchRepositories();
   }
 
+  @ViewChild('scrollTrigger') scrollTrigger!: ElementRef;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (this.isLoading) return;
+
+    const el = this.scrollTrigger.nativeElement;
+    const rect = el.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if (rect.top < windowHeight) {
+      console.log(1);
+    }
+  }
+
   fetchRepositories() {
     this.isLoading = true;
 
@@ -41,10 +56,5 @@ export class App {
       .finally(() => {
         this.isLoading = false;
       });
-  }
-
-  showMoreRepositories() {
-    this.apiPage++;
-    this.fetchRepositories();
   }
 }

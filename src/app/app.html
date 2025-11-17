@@ -11,7 +11,7 @@
             {{ repository.owner.avatar_url }}
           </div>
           @if ($index === repositories.length - 1) {
-            <button (click)="showMoreRepositories()">more</button>
+            <div #scrollTrigger></div>
           }
         </li>
       } @empty {
