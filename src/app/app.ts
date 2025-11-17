@@ -21,12 +21,15 @@ interface Repository {
 export class App {
   repositories: Repository[] = [];
   apiPage = 1;
+  isLoading = false;
 
   ngOnInit() {
     this.fetchRepositories();
   }
 
   fetchRepositories() {
+    this.isLoading = true;
+
     fetch(
       `https://api.github.com/search/repositories?q=created:>2025-10-13&sort=stars&order=desc&page=${this.apiPage}`,
     )
@@ -34,7 +37,10 @@ export class App {
       .then((data) => {
         this.repositories.push(...data.items);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error))
+      .finally(() => {
+        this.isLoading = false;
+      });
   }
 
   showMoreRepositories() {
