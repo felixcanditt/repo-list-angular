@@ -10,9 +10,6 @@
             }},
             {{ repository.owner.avatar_url }}
           </div>
-          @if ($index === repositories.length - 1) {
-            <div #scrollTrigger></div>
-          }
         </li>
       } @empty {
         <li>There are no repositories.</li>
