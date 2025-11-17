@@ -3,13 +3,23 @@
     <ul>
       @for (repository of repositories; track $index) {
         <li>
+          <h2>
+            {{ repository.name }}
+          </h2>
+          <p>
+            {{ repository.description }}
+          </p>
           <div>
-            {{ repository.stargazers_count }}, {{ repository.name }}, {{ repository.description }},
-            {{ repository.stargazers_count }}, {{ repository.open_issues_count }},{{
-              repository.owner.login
-            }}, {{ repository.owner.avatar_url }}, created
-            {{ daysAgo(repository.created_at) }} day(s) ago by {{ repository.owner.login }}
+            <button>Stars: {{ repository.stargazers_count }}</button>
+            <button>Issues: {{ repository.open_issues_count }}</button>
+            <span>
+              created
+              {{ daysAgo(repository.created_at) }} day(s) ago by {{ repository.owner.login }}
+            </span>
           </div>
+          <p>
+            {{ repository.owner.avatar_url }}
+          </p>
         </li>
       } @empty {
         <li>There are no repositories.</li>
