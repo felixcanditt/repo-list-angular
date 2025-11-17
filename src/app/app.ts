@@ -22,6 +22,7 @@ export class App {
   repositories: Repository[] = [];
   apiPage = 1;
   isLoading = false;
+  hasMore = true;
 
   ngOnInit() {
     this.fetchRepositories();
@@ -48,7 +49,13 @@ export class App {
       .then((response) => response.json())
       .then((data) => {
         this.repositories.push(...data.items);
-        this.apiPage++;
+
+        if (data.items && data.items.length > 0) {
+          this.repositories.push(...data.items);
+          this.apiPage++;
+        } else {
+          this.hasMore = false;
+        }
       })
       .catch((error) => console.error(error))
       .finally(() => {
