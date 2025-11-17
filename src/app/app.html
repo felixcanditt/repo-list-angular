@@ -7,8 +7,8 @@
             {{ repository.stargazers_count }}, {{ repository.name }}, {{ repository.description }},
             {{ repository.stargazers_count }}, {{ repository.open_issues_count }},{{
               repository.owner.login
-            }},
-            {{ repository.owner.avatar_url }}
+            }}, {{ repository.owner.avatar_url }}, created
+            {{ daysAgo(repository.created_at) }} day(s) ago by {{ repository.owner.login }}
           </div>
         </li>
       } @empty {
