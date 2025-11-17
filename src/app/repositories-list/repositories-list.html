@@ -1,0 +1,9 @@
+@if (repositories.length > 0) {
+  <ol>
+    @for (repository of repositories; track $index) {
+      <app-repository [repository]="repository"></app-repository>
+    } @empty {
+      <li>There are no repositories.</li>
+    }
+  </ol>
+}

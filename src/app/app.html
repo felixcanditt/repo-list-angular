@@ -1,15 +1,7 @@
 <main class="main">
   <h1>Trending Repos</h1>
 
-  @if (repositories.length > 0) {
-    <ol>
-      @for (repository of repositories; track $index) {
-        <app-repository [repository]="repository"></app-repository>
-      } @empty {
-        <li>There are no repositories.</li>
-      }
-    </ol>
-  }
+  <app-repositories-list [repositories]="repositories"></app-repositories-list>
 
   @if (isLoading) {
     <p>Loading...</p>
