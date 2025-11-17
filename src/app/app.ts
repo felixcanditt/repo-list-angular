@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RepositoryComponent } from './repository/repository';
 
 interface Repository {
   name: string;
@@ -15,7 +16,7 @@ interface Repository {
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule, RepositoryComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

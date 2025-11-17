@@ -1,5 +1,6 @@
 <main class="main">
   <h1>Trending Repos</h1>
+  <app-repository></app-repository>
   @if (repositories.length > 0) {
     <ol>
       @for (repository of repositories; track $index) {
