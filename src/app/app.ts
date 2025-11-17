@@ -20,7 +20,6 @@ interface Repository {
 })
 export class App {
   repositories: Repository[] = [];
-  newArray = [1, 2, 3];
   apiPage = 1;
 
   ngOnInit() {
@@ -34,15 +33,12 @@ export class App {
       .then((response) => response.json())
       .then((data) => {
         this.repositories.push(...data.items);
-        console.log(this.repositories);
         this.apiPage++;
       })
       .catch((error) => console.error(error));
   }
 
-  showMore() {
-    console.log(1);
-    //this.newArray.push(4, 5, 6);
+  showMoreRepositories() {
     this.fetchRepositories();
   }
 }

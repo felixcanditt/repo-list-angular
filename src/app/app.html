@@ -11,7 +11,7 @@
             {{ repository.owner.avatar_url }}
           </div>
           @if ($index === repositories.length - 1) {
-            <button (click)="showMore()">more</button>
+            <button (click)="showMoreRepositories()">more</button>
           }
         </li>
       } @empty {
@@ -19,20 +19,4 @@
       }
     </ul>
   }
-
-  <ul>
-    @for (item of newArray; track $index) {
-      <li>
-        <div>
-          {{ item }}
-        </div>
-
-        @if ($index === newArray.length - 1) {
-          <button (click)="showMore()">more</button>
-        }
-      </li>
-    } @empty {
-      <li>There are no repositories.</li>
-    }
-  </ul>
 </main>
