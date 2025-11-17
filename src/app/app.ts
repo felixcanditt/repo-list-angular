@@ -21,22 +21,28 @@ interface Repository {
 export class App {
   repositories: Repository[] = [];
   newArray = [1, 2, 3];
+  apiPage = 1;
 
   ngOnInit() {
     this.fetchRepositories();
   }
 
   fetchRepositories() {
-    fetch('https://api.github.com/search/repositories?q=created:>2025-10-13&sort=stars&order=desc')
+    fetch(
+      `https://api.github.com/search/repositories?q=created:>2025-10-13&sort=stars&order=desc&page=${this.apiPage}`,
+    )
       .then((response) => response.json())
       .then((data) => {
-        this.repositories = data.items;
+        this.repositories.push(...data.items);
+        console.log(this.repositories);
+        this.apiPage++;
       })
       .catch((error) => console.error(error));
   }
 
   showMore() {
     console.log(1);
-    this.newArray.push(4, 5, 6);
+    //this.newArray.push(4, 5, 6);
+    this.fetchRepositories();
   }
 }

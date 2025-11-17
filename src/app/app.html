@@ -4,8 +4,10 @@
       @for (repository of repositories; track $index) {
         <li>
           <div>
-            {{ repository.name }}, {{ repository.description }}, {{ repository.stargazers_count }},
-            {{ repository.open_issues_count }}, {{ repository.owner.login }},
+            {{ repository.stargazers_count }}, {{ repository.name }}, {{ repository.description }},
+            {{ repository.stargazers_count }}, {{ repository.open_issues_count }},{{
+              repository.owner.login
+            }},
             {{ repository.owner.avatar_url }}
           </div>
           @if ($index === repositories.length - 1) {
