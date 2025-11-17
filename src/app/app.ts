@@ -30,7 +30,7 @@ export class App {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    if (this.isLoading) return;
+    if (this.isLoading || !this.hasMore) return;
 
     const scrollPosition = window.scrollY + window.innerHeight;
     const contentHeight = document.documentElement.scrollHeight;
@@ -48,8 +48,6 @@ export class App {
     )
       .then((response) => response.json())
       .then((data) => {
-        this.repositories.push(...data.items);
-
         if (data.items && data.items.length > 0) {
           this.repositories.push(...data.items);
           this.apiPage++;
