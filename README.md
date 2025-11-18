@@ -27,6 +27,7 @@ Repository
 
 App > should render title
 Expected 'Trending Repos' to contain 'Hello, repo-list-angular'.
+    at UserContext.<anonymous> (http://localhost:9876/base/src/app/app.spec.ts:21:55)
    
 RepositoriesList > should create
 TypeError: Cannot read properties of undefined (reading 'length')
