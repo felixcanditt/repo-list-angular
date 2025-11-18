@@ -8,7 +8,7 @@ Angular app that lists the most starred GitHub repositories created in the last 
 - Uses Fetch API - sufficient for simple GET requests, no extra dependencies, keeps the project lightweight
 - Standalone components - modular and reusable
 - CSS + Flexbox - simple responsive layout
-- Jasmine + Karma – for unit testing components and verifying rendering/functionality
+- Jasmine + Karma - for unit testing components and verifying rendering/functionality
 
 ## Run 
 - Clone the GitHub repository to your machine and navigate to the project directory
