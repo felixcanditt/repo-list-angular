@@ -8,6 +8,7 @@ Angular app that lists the most starred GitHub repositories created in the last 
 - Uses Fetch API - sufficient for simple GET requests, no extra dependencies, keeps the project lightweight
 - Standalone components - modular and reusable
 - CSS + Flexbox - simple responsive layout
+- Jasmine + Karma – for unit testing components and verifying rendering/functionality
 
 ## Run 
 - Clone the GitHub repository to your machine and navigate to the project directory
@@ -16,7 +17,7 @@ Angular app that lists the most starred GitHub repositories created in the last 
 
 ## Running tests
 
-The Angular app uses Jasmine for unit testing and Karma as the test runner. Tests are defined in .spec.ts files next to each component. To run the tests, execute `npm install` and then `ng test`.
+The app uses Jasmine for unit testing and Karma as the test runner. Tests are defined in .spec.ts files next to each component. To run the tests, execute `npm install` and then `ng test`.
 
 ### My test runs
 
